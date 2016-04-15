@@ -8,6 +8,7 @@
 * Email Autoresponse Using Nodemailer
 * Slack Notifications Integration
 * Login And View DB with Admin Panel
+* Node Cluster Support for Improved Performance
 
 ### Built With
 * NodeJS
@@ -46,7 +47,6 @@ You need to add the following to your directory ```private/etc/hosts```
 	List Export
 	Notification Settings
 	Deployment Scripts
-	Cluster Support
 	eBook Offer Site
 	Product Lander
 	Google Analytics

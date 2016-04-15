@@ -28,6 +28,6 @@ app.use(vhost('personal.nodelander.dev', personal));
 app.use(vhost('nodelander.dev', corporate));
 app.use(vhost('product.nodelander.dev', product));
 
-mongoose.connect('mongodb://localhost/nodelander');
+mongoose.createConnection('mongodb://localhost/nodelander');
 
 module.exports = app;
