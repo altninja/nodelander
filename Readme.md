@@ -2,11 +2,22 @@
 ### Fast Deploying NodeJS Landing Page And Lead Capture
 * Uses Express vHost To Manage Multiple Domains
 * Serves Multiple Landing Pages and Marketing Sites
-* Custom Routes for A/B Testing
+* Uses Shared Private Assets (npm) and Public Assets (bower / images)
+* Preconfigured Routes for A/B Testing
 * Collects Emails And Other Validated Form Info
 * Email Autoresponse Using Nodemailer
 * Slack Notifications Integration
 * Login And View DB with Admin Panel
+
+### Built With
+* NodeJS
+* MongoDB
+* Bootstrap
+* Jade
+* Express
+* Passport
+* Mongoose
+* Bower
 
 ### Install
     git clone git@github.com:altninja/nodelander.git
@@ -37,13 +48,10 @@ You need to add the following to your directory ```private/etc/hosts```
 	Deployment Scripts
 	Cluster Support
 	eBook Offer Site
-	Corporate Lander
-	Personal Lander
 	Product Lander
 	Google Analytics
 	Facebook Conversion Tracking
-	Shared Private Assets
-	Share Public Assets
+
 	Live Reload
 	Independent Crashing
 	Clean Updates
