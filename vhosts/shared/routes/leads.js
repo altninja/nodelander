@@ -8,7 +8,8 @@ var express = require('express'),
 	email_response_template = require('../templates/email_response_template.js'),
 	email_alert_template = require('../templates/email_alert_template.js'),
 	Slack = require('slack-node'),
-	Lead = require('../../shared/models/lead.js');
+	Lead = require('../../shared/models/lead.js'),
+	assetbase = require('../../shared/config/secrets.js').assetbase;
 
 function newLead(email, source, domain, res) {
     Lead.create({
@@ -23,13 +24,17 @@ function newLead(email, source, domain, res) {
 }
 
 router.get('/', function(req, res, next){
-	res.render('leads');
+	res.render('leads', {
+        assetbase: assetbase.url
+    });
 });
 
 router.post('/', function(req,res) {
 	var lead = req.body;
-	var csvLead = JSON.stringify(req.body) + ',';
 	var domain = req.headers['origin'];
+	var csvEmail = JSON.stringify(req.body.email);
+	var csvSource = JSON.stringify(req.body.source);
+	var csvOut = csvEmail + ',' + csvSource + ',"' + domain + '",\r\n';
 	
 	var responseMail = {
 		from: secrets.response.from,
@@ -48,7 +53,7 @@ router.post('/', function(req,res) {
 	var slack = new Slack();
 	slack.setWebhook(secrets.slack.uri);
 
-	fs.appendFile("vhosts/shared/lists/emails.csv", csvLead, function(err) {
+	fs.appendFile("vhosts/shared/lists/emails.csv", csvOut, function(err) {
 		if(err) {
 			return console.log(err);
 		}
@@ -59,7 +64,7 @@ router.post('/', function(req,res) {
 			channel: "#general",
 			username: "Nodelander",
 			icon_emoji: ":slack:",
-			text: "Nodelander new email signup: " + req.body.email
+			text: "Nodelander new email signup: " + req.body.email + "from:" + domain
 		}, function(err, response) {
 			console.log(response);
 		});

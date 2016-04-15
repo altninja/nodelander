@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Account = require('../models/account');
 var Lead = require('../../shared/models/lead');
-var assetbase = 'http://nodelander.dev';
+var assetbase = require('../../shared/config/secrets.js').assetbase.uri;
 
 function registerUser(email, password, res) {
     Account.register(new Account({
@@ -59,7 +59,8 @@ router.get('/', function (req, res, next) {
         });
 
         res.render('dashboard', {
-            users: users
+            users: users,
+            assetbase: assetbase
         });
     });
 });
@@ -94,7 +95,8 @@ router.get('/update/:id', function (req, res, next) {
             res.render('update', {
                 id: user._id,
                 email: user.email,
-                password: user.password
+                password: user.password,
+                assetbase: assetbase
             });
         } else {
             res.redirect('/dashboard');
@@ -142,7 +144,9 @@ router.post('/delete/:id', function (req, res, next) {
 
 
 router.get('/new', function (req, res, next) {
-    res.render('new');
+    res.render('new', {
+            assetbase: assetbase
+        });
 });
 
 module.exports = router;

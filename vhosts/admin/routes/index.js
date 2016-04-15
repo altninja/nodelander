@@ -6,7 +6,7 @@ var router = express.Router();
 
 var Account = require('../models/account');
 
-var assetbase = 'http://assets.nodelander.dev/';
+var assetbase = require('../../shared/config/secrets.js').assetbase.uri;
 
 router.get('/', function (req, res) {
     res.render('index', {
