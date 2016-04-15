@@ -1,0 +1,23 @@
+include layout
+
+block content
+  .container
+    .row
+      h2 Leads
+      hr
+      br
+      .table-responsive
+        table.table.table-bordered.datatable
+          thead
+            tr
+              th ID
+              th Email
+              th Source
+              th Domain
+          tbody
+            each lead in leads
+              tr
+                td= lead.id
+                td= lead.email
+                td= lead.source
+                td= lead.domain

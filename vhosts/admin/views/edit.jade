@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='csrf-token', content=_csrf)
+    title ALUA
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        h2 Edit User
+        hr
+        form.form-horizontal(action="/user/update/#{_id}", method="post")
+          .form-group
+            label.col-sm-2.control-label Email
+            .col-sm-10
+              input.form-control(type='email', placeholder='Email')
+          .form-group
+            label.col-sm-2.control-label Password
+            .col-sm-10
+              input.form-control(type='password', placeholder='Password')
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              button.btn.btn-success(type='submit')
+                | Confirm Updates

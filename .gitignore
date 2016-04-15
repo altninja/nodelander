@@ -1,0 +1,5 @@
+node_modules
+vhosts/assets/lib
+.DS_Store
+npm-debug.log
+vhosts/shared/config/secrets.js

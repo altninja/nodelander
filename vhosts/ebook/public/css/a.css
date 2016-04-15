@@ -1,0 +1,15 @@
+h1 {
+	color: rgb(52, 152, 219)!important;
+}
+
+h2 {
+	color: rgb(41, 128, 185)!important;
+}
+
+h3, .white {
+	color: #fff!important;
+}
+
+.colour-bg {
+	background-color: rgb(52, 152, 219)!important;
+}

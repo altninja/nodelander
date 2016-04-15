@@ -1,0 +1,81 @@
+html, body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 100;
+	background-color: #ececec;
+}
+
+h1 {
+	color: rgb(32, 100, 60);
+	font-size: 65px;
+	line-height: 60px;
+	font-weight: 600;
+}
+
+h2 {
+	color: rgb(9, 132, 5);
+	font-size: 28px;
+	line-height: 45px;
+	font-weight: 600;
+}
+
+.form-pad {
+	margin: 30px;
+}
+
+.form-control {
+	height: 50px;
+	width: 300px!important;
+	font-size: 22px;
+}
+
+.btn-success {
+	height: 50px;
+	font-size: 22px;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.3-step {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1080px;
+}
+
+.topper {
+	margin-top: 50px;
+}
+
+.colour-bg {
+	background-color: rgb(200, 230, 201);
+	padding-top: 10px;
+	padding-bottom: 25px;
+}
+
+.colour-bg p {
+	font-size: 16px;
+	color: #333333;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+
+.container-full {
+	margin: 0 auto;
+	width: 100%;
+	padding-right: 60px;
+	padding-left: 60px;
+}
+
+.row-img {
+	max-width: 1080px;
+}
+
+.thanks-msg {
+	margin-top: 100px;
+	background-color: rgb(200, 230, 201);
+	font-size: 32px;
+	padding: 30px;
+}
+
+.login-form {
+	margin-top: 120px;
+}

@@ -1,0 +1,57 @@
+extends layout
+
+block content
+	link(rel='stylesheet', href='/stylesheets/a.css')
+	.container
+		.row
+			.col-md-12.text-center
+				h1 Hey! Attention Grabbing Headline Here              
+				h2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper!
+
+	.container-full.colour-bg
+		.3-step
+			.row
+				.col-md-4
+					.row
+						.col-md-4
+							i.fa.fa-5x.fa-leaf.pull-right.topper                       
+						.col-md-8
+							h3 1. Heading One                           
+							p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper nulla nec sapien sollicitudin, id vestibulum ex luctus.                    
+				.col-md-4
+					.row
+						.col-md-4
+							i.fa.fa-5x.fa-rocket.pull-right.topper                        
+						.col-md-8
+							h3 2. Heading 2                           
+							p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper nulla nec sapien sollicitudin, id vestibulum ex luctus.                
+				.col-md-4
+					.row
+						.col-md-4
+							i.fa.fa-5x.fa-github.pull-right.topper                         
+						.col-md-8
+							h3 3. Heading 3                             
+							p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper nulla nec sapien sollicitudin, id vestibulum ex luctus.
+
+	.container
+		.row
+			.col-md-12.text-center
+				h2 Add a heading above the lead capture form here                
+				form#signupForm.form-inline.form-pad(role='form', action='/leads', method='post')
+					.form-group
+					input#email.form-control(type='email', name='email', placeholder='Your Email Address', required='')
+					input#source.hidden(type='text', value='a', name='source')
+					button.btn.btn-success.text-center(type='submit') CTA Text!                  
+					p No spam - we keep your information private 
+
+	.container
+		.row
+			.col-md-12.text-center
+				i.fa.fa-5x.fa-users
+				h2 Add Some More Sales Copy Right Here!                 
+				hr
+
+	.container-full.colour-bg
+		.row
+			.col-md-12.text-center
+				p.white Copyright © 2016 - Your Company Name - All Rights Reserved

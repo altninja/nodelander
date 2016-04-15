@@ -1,0 +1,23 @@
+include layout
+
+block content
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        h2 New User
+        hr
+        form.form-horizontal(action="/dashboard/new/create", method="POST")
+          .form-group
+            label.col-sm-5.control-label Email
+            .col-sm-6
+              input.form-control(type='email', name="email" placeholder='Email')
+          .form-group
+            label.col-sm-5.control-label Password
+            .col-sm-6
+              input.form-control(type='text', name="password" placeholder='Password')
+          .form-group
+            .col-sm-offset-3.col-sm-9
+              a.btn.btn-default(href='/dashboard')
+                | Back
+              button.btn.btn-success(style='margin-left: 10px', type='submit')
+                | Create User

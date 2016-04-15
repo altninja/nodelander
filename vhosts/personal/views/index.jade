@@ -1,0 +1,171 @@
+extends layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container
+			.navbar-header.page-scroll
+				button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+					span.sr-only Toggle navigation                     
+					span.icon-bar
+					span.icon-bar         
+					span.icon-bar     
+				a.navbar-brand(href='#page-top') Personal Nodelander
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				ul.nav.navbar-nav.navbar-right
+					li.hidden
+						a(href='#page-top')                     
+					li.page-scroll
+						a(href='#portfolio') Portfolio                     
+					li.page-scroll
+						a(href='#about') About                     
+					li.page-scroll
+						a(href='#contact') Contact
+
+	header
+		.container
+			.row
+				.col-lg-12
+					img.img-responsive(src='http://assets.nodelander.dev/images/3.jpg', alt='')                     
+					.intro-text
+						span.name Johnny O'Smith
+						hr.star-light
+						span.skills Web Developer - Graphic Artist - User Experience Designer
+
+	section#portfolio
+		.container
+			.row
+				.col-lg-12.text-center
+					h2 Portfolio   
+					hr.star-primary
+			.row
+				.col-sm-4.portfolio-item
+					a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
+						.caption
+							.caption-content
+								i.fa.fa-search-plus.fa-3x 
+						img.img-responsive(src='http://assets.nodelander.dev/images/1.jpg', alt='')
+				.col-sm-4.portfolio-item
+					a.portfolio-link(href='#portfolioModal2', data-toggle='modal')
+						.caption
+							.caption-content
+								i.fa.fa-search-plus.fa-3x
+						img.img-responsive(src='http://assets.nodelander.dev/images/2.jpg', alt='')
+				.col-sm-4.portfolio-item
+					a.portfolio-link(href='#portfolioModal3', data-toggle='modal')
+						.caption
+							.caption-content
+							i.fa.fa-search-plus.fa-3x
+						img.img-responsive(src='http://assets.nodelander.dev/images/3.jpg', alt='')
+				.col-sm-4.portfolio-item
+					a.portfolio-link(href='#portfolioModal4', data-toggle='modal')
+						.caption
+							.caption-content
+								i.fa.fa-search-plus.fa-3x
+						img.img-responsive(src='http://assets.nodelander.dev/images/4.jpg', alt='')
+				.col-sm-4.portfolio-item
+					a.portfolio-link(href='#portfolioModal5', data-toggle='modal')
+						.caption
+							.caption-content
+								i.fa.fa-search-plus.fa-3x                         
+						img.img-responsive(src='http://assets.nodelander.dev/images/5.jpg', alt='')
+				.col-sm-4.portfolio-item
+					a.portfolio-link(href='#portfolioModal6', data-toggle='modal')
+						.caption
+							.caption-content
+								i.fa.fa-search-plus.fa-3x                         
+						img.img-responsive(src='http://assets.nodelander.dev/images/6.jpg', alt='')
+
+	section#about.success
+		.container
+			.row
+				.col-lg-12.text-center
+					h2 About
+					hr.star-light
+			.row
+				.col-lg-4.col-lg-offset-2
+					p Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.
+				.col-lg-4
+					p Whether you&apos;re a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!
+				.col-lg-8.col-lg-offset-2.text-center
+					a.btn.btn-lg.btn-outline(href='#')
+						i.fa.fa-download
+						|  CTA Button!
+
+	section#contact
+	.container
+		.row
+			.col-lg-12.text-center
+				h2 Contact Me                
+				hr.star-primary 
+		.row
+			.col-lg-8.col-lg-offset-2
+
+				form#contactForm(name='sentMessage', novalidate='')
+					.row.control-group
+						.form-group.col-xs-12.floating-label-form-group.controls
+							label Name
+							input#name.form-control(type='text', placeholder='Name', required='', data-validation-required-message='Please enter your name.')
+							p.help-block.text-danger
+					.row.control-group
+						.form-group.col-xs-12.floating-label-form-group.controls
+							label Email Address
+							input#email.form-control(type='email', placeholder='Email Address', required='', data-validation-required-message='Please enter your email address.')
+							p.help-block.text-danger
+					.row.control-group
+						.form-group.col-xs-12.floating-label-form-group.controls
+							label Phone Number
+							input#phone.form-control(type='tel', placeholder='Phone Number', required='', data-validation-required-message='Please enter your phone number.')
+							p.help-block.text-danger
+					.row.control-group
+						.form-group.col-xs-12.floating-label-form-group.controls
+							label Message
+							textarea#message.form-control(rows='5', placeholder='Message', required='', data-validation-required-message='Please enter a message.')
+							p.help-block.text-danger
+							br
+							#success
+		.row
+			.form-group.col-xs-12
+				button.btn.btn-success.btn-lg(type='submit') Send
+
+	footer.text-center
+		.footer-above
+			.container
+				.row
+					.footer-col.col-md-4
+						h3 Location                         
+						p
+							| 3481 Melrose Place
+							br
+							| Beverly Hills, CA 90210
+					.footer-col.col-md-4
+						h3 Around the Web
+						ul.list-inline
+							li
+								a.btn-social.btn-outline(href='#')
+									i.fa.fa-fw.fa-facebook
+							li
+								a.btn-social.btn-outline(href='#')
+									i.fa.fa-fw.fa-google-plus
+							li
+								a.btn-social.btn-outline(href='#')
+									i.fa.fa-fw.fa-twitter
+							li
+								a.btn-social.btn-outline(href='#')
+									i.fa.fa-fw.fa-linkedin
+							li
+								a.btn-social.btn-outline(href='#')
+									i.fa.fa-fw.fa-dribbble
+					.footer-col.col-md-4
+						h3 About Freelancer
+						p Freelance is a free to use, open source Bootstrap theme created by 
+						a(href='http://startbootstrap.com') Start Bootstrap
+     
+		.footer-below
+			.container
+				.row
+					.col-lg-12
+					| Copyright &copy; Your Website 2014
+
+	.scroll-top.page-scroll.hidden-sm.hidden-xs.hidden-lg.hidden-md
+		a.btn.btn-primary(href='#page-top')
+			i.fa.fa-chevron-up
