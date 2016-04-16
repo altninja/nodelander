@@ -14,15 +14,6 @@ if (local) {
 			user: 'you@you_email.com',
 			pwd: 'YourPassword'
 		},
-		response: {
-			from: 'noreply@your_email.com',
-			subject: 'Subject Of Response From Nodelander'
-		},
-		alert: {
-			from: 'noreply@your_email.com',
-			to: 'you@your_email.com',
-			subject: 'New Alert From Nodelander'
-		},
 		slack: {
 			uri: 'YOUR SLACK URI'
 		}
@@ -33,15 +24,6 @@ if (local) {
 			host: 'smtp.gmail.com',
 			user: 'you@your_email.com',
 			pwd: 'YourPassword'
-		},
-		response: {
-			from: 'noreply@your_email.com',
-			to: 'you@your_email.com',
-			subject: 'Subject Of Response From Nodelander'
-		},
-		alert: {
-			from: 'noreply@your_email.com',
-			subject: 'New Alert From Nodelander'
 		},
 		slack: {
 			uri: 'YOUR SLACK URI'
