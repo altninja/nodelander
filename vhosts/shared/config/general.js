@@ -6,12 +6,18 @@ var local = process.env.NODE_ENV === 'local',
 
 if (local) {
     obj = {
+        default: {
+            title: 'Nodelander Dev Environment'
+        },
         assetbase: {
             url: 'http://assets.nodelander.dev/'
         }
     }
 } else if (production) {
     obj = {
+        default: {
+            title: 'Nodelander'
+        },
         assetbase: {
             url: 'http://assets.yourdomain.com/'
         }
