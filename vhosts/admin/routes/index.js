@@ -6,7 +6,7 @@ var router = express.Router();
 
 var Account = require('../models/account');
 
-var assetbase = require('../../shared/config/secrets.js').assetbase.uri;
+var assetbase = require('../../shared/config/general.js').assetbase.url;
 
 router.get('/', function (req, res) {
     res.render('index', {

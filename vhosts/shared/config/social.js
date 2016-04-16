@@ -1,6 +1,6 @@
 'use strict';
 
-var assetbase = require('./sample-general.js').assetbase.url;
+var assetbase = require('./general.js').assetbase.url;
 
 // See FB OG Docs for more info - https://developers.facebook.com/docs/reference/opengraph/
 

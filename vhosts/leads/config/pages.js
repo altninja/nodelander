@@ -1,6 +1,6 @@
 'use strict';
 
-var general = require('../../shared/config/sample-general.js');
+var general = require('../../shared/config/general.js');
 
 var obj = {};
 

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Account = require('../models/account');
 var Lead = require('../../shared/models/lead');
-var assetbase = require('../../shared/config/secrets.js').assetbase.url;
+var assetbase = require('../../shared/config/general.js').assetbase.url;
 
 function registerUser(email, password, res) {
     Account.register(new Account({

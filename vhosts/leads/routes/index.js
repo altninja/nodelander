@@ -9,7 +9,7 @@ var view = require('../../shared/helpers/view');
 router.get('/', function(req, res, next) {
 	var title = pages.index.title;
 	var img = pages.index.img;
-	view.build(req, res, pages.index.view, title, img);
+	view.build(req, res, 'index', title, img);
 });
 
 router.get('/a', function(req, res, next) {

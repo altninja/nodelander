@@ -1,7 +1,7 @@
 'use strict';
 
-var general = require('../../shared/config/sample-general.js');
-var social = require('../../shared/config/sample-social.js');
+var general = require('../../shared/config/general.js');
+var social = require('../../shared/config/social.js');
 
 function build (req, res, view, title, img) {	
 	var url = req.protocol + '://' + req.get('host') + req.originalUrl;
