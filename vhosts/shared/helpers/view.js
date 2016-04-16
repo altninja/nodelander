@@ -3,7 +3,7 @@
 var general = require('../../shared/config/sample-general.js');
 var social = require('../../shared/config/sample-social.js');
 
-function buildView (req, res, view, title, img) {	
+function build (req, res, view, title, img) {	
 	var url = req.protocol + '://' + req.get('host') + req.originalUrl;
 	var meta = {
 		title: title,
@@ -31,5 +31,5 @@ function buildView (req, res, view, title, img) {
 }
 
 module.exports = {
-	buildView: buildView
+	build: build
 };
