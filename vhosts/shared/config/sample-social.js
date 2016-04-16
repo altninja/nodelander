@@ -1,5 +1,7 @@
 'use strict';
 
+var assetbase = require('./sample-general.js').assetbase.url;
+
 // See FB OG Docs for more info - https://developers.facebook.com/docs/reference/opengraph/
 
 var obj = {};
@@ -19,7 +21,7 @@ obj = {
         image_src: assetbase + "images/1.jpg"
     },
     facebook: {
-        og_url: 'http://nodelander.com',
+        og_url: "http://nodelander.com",
         og_type: "business.business",
         og_title: "Nodelander",
         og_image: assetbase + "images/1.jpg",

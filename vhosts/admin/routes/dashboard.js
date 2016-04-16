@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Account = require('../models/account');
 var Lead = require('../../shared/models/lead');
-var assetbase = require('../../shared/config/secrets.js').assetbase.uri;
+var assetbase = require('../../shared/config/secrets.js').assetbase.url;
 
 function registerUser(email, password, res) {
     Account.register(new Account({
@@ -40,26 +40,6 @@ router.get('/', function (req, res, next) {
         });
         res.render('dashboard', {
             leads: leads,
-            assetbase: assetbase
-        });
-    });
-
-    Lead.find({
-        role: 'user'
-    }, function (err, users) {
-        if (err) throw new Error(err);
-
-        users.map(function (user) {
-            return {
-                id: user._id,
-                email: user.email,
-                password: user.password,
-                sessions: user.sessions
-            };
-        });
-
-        res.render('dashboard', {
-            users: users,
             assetbase: assetbase
         });
     });
