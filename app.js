@@ -3,7 +3,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var vhost = require('vhost');
-var mongoose = require('mongoose');
+var mongoose = require('./vhosts/shared/db/mongoose');
 
 var app = express();
 
@@ -28,6 +28,8 @@ app.use(vhost('personal.nodelander.dev', personal));
 app.use(vhost('nodelander.dev', corporate));
 app.use(vhost('product.nodelander.dev', product));
 
-mongoose.createConnection('mongodb://localhost/nodelander');
+mongoose.on('connected', function () {
+	console.log('DB Connected');
+});
 
 module.exports = app;

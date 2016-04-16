@@ -16,7 +16,14 @@ if (local) {
 		},
 		slack: {
 			uri: 'YOUR SLACK URI'
-		}
+		},
+	      db: {
+	        host: 'localhost',
+	        user: '',
+	        pass: '',
+	        name: 'nodelander',
+	        port: '27017'
+	     }
 	}
 } else if (production) {
 	obj = {
@@ -27,7 +34,15 @@ if (local) {
 		},
 		slack: {
 			uri: 'YOUR SLACK URI'
-		}
+		},
+		,
+	      db: {
+	        host: 'localhost',
+	        user: 'dbusername',
+	        pass: 'dbpassword',
+	        name: 'nodelander',
+	        port: '27017'
+	     }
 	}
 }
 

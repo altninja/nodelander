@@ -3,7 +3,6 @@ var express = require('express'),
 	favicon = require('serve-favicon'),
 	logger = require('morgan'),
 	cookieParser = require('cookie-parser'),
-	mongoose = require('mongoose'),
 	bodyParser = require('body-parser'),
 	routes = require('./routes/index'),
 	leads = require('../shared/routes/leads'),
@@ -18,8 +17,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-mongoose.createConnection('mongodb://localhost/nodelander');
 
 app.use('/', routes);
 app.use('/a', routes);

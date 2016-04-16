@@ -19,8 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.createConnection('mongodb://localhost/nodelander');
-
 app.use('/', routes);
 app.use('/a', routes);
 app.use('/b', routes);

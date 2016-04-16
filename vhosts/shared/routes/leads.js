@@ -5,11 +5,12 @@ var express = require('express'),
 	fs = require('fs'),
 	mail = require('../../shared/helpers/mail.js'),
 	secrets = require('../../shared/config/secrets.js'),
+	email = require('../../shared/config/email.js'),
 	email_response_template = require('../templates/email_response_template.js'),
 	email_alert_template = require('../templates/email_alert_template.js'),
 	Slack = require('slack-node'),
 	Lead = require('../../shared/models/lead.js'),
-	assetbase = require('../../shared/config/secrets.js').assetbase;
+	general = require('../../shared/config/general.js');
 
 function newLead(email, source, domain, res) {
     Lead.create({
@@ -25,7 +26,7 @@ function newLead(email, source, domain, res) {
 
 router.get('/', function(req, res, next){
 	res.render('leads', {
-        assetbase: assetbase.url
+        assetbase: general.assetbase.url
     });
 });
 
@@ -35,43 +36,47 @@ router.post('/', function(req,res) {
 	var csvEmail = JSON.stringify(req.body.email);
 	var csvSource = JSON.stringify(req.body.source);
 	var csvOut = csvEmail + ',' + csvSource + ',"' + domain + '",\r\n';
-	
-	var responseMail = {
-		from: secrets.response.from,
-		subject: secrets.response.subject,
-		to: req.body.email,
-		html: email_response_template
-	};
-	
-	var alertMail = {
-		from: secrets.alert.from,
-		subject: secrets.alert.subject,
-		to: secrets.alert.to,
-		html: email_alert_template
-	};
-	
-	var slack = new Slack();
-	slack.setWebhook(secrets.slack.uri);
-
-	fs.appendFile("vhosts/shared/lists/emails.csv", csvOut, function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		mail.sendMail(responseMail);
-		mail.sendMail(alertMail);
-
-		slack.webhook({
-			channel: "#general",
-			username: "Nodelander",
-			icon_emoji: ":slack:",
-			text: "Nodelander new email signup: " + req.body.email + "from:" + domain
-		}, function(err, response) {
-			console.log(response);
-		});
+		console.log(lead.email + 'leademail')
+	if (lead.email !== '' || null || undefined) {
+		console.log(lead.email + 'leademail')
 		newLead(lead.email, lead.source, domain, res);
-		res.redirect('/leads');
-		console.log("Lead Added Successfully");
-	});
+		
+		if (general.toggle.email_response === true) {
+			var responseMail = {
+				from: email.response.from,
+				subject: email.response.subject,
+				to: lead.email,
+				html: email_response_template
+			};
+			mail.sendMail(responseMail);
+		} else if (general.toggle.email_alert === true) {
+			var alertMail = {
+				from: email.alert.from,
+				subject: email.alert.subject,
+				to: email.alert.to,
+				html: email_alert_template
+			};
+			mail.sendMail(alertMail);
+		} else if (general.toggle.slack_alert === true) {
+			var slack = new Slack();
+			slack.setWebhook(secrets.slack.uri);
+			slack.webhook({
+				channel: "#general",
+				username: "Nodelander",
+				icon_emoji: ":slack:",
+				text: "Nodelander new email signup: " + req.body.email + "from:" + domain
+			}, function(err, response) {
+				console.log(response);
+			});
+		}
+
+		
+	}
+	fs.appendFile("vhosts/shared/lists/emails.csv", csvOut);
+	res.redirect('/leads');
 });
+
+	
+
 
 module.exports = router;
